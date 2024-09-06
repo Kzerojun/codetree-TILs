@@ -76,8 +76,11 @@ public class Main {
 
             }
 
-            if(rowCheck && colCheck) {
-                result+=2;
+            if(rowCheck) {
+                result++;
+            }
+            if(colCheck) {
+                result++;
             }
 
         }
