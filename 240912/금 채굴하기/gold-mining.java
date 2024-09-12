@@ -71,7 +71,7 @@ public class Main {
         }
 
         int cost = calCost(k);
-        if (goldCost - cost > 0) {
+        if (goldCost - cost >= 0) {
             return goldCost / m;
         }
 
