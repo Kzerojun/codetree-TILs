@@ -75,7 +75,7 @@ public class Main {
             return goldCost / m;
         }
 
-        return -1;
+        return 0;
     }
 
     private static int calCost(int k) {
