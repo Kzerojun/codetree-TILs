@@ -48,8 +48,6 @@ public class Main {
             sb.append(count);
         }
 
-        System.out.println(sb.toString());
-
         result = Math.min(result,sb.toString().length());
     }
 
