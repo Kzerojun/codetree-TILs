@@ -104,7 +104,7 @@ public class Main {
 
     private static void down() {
         for(int j = 0 ; j<4; j++) {
-            for(int i = 3 ; i>1; i--) {
+            for(int i = 3 ; i>=1; i--) {
                 int now = board[i][j];
                 int next = board[i-1][j];
 
