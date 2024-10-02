@@ -45,7 +45,7 @@ public class Main {
 
         // 결과 출력. 합이 s 이상인 경우만 출력
         if (result == Integer.MAX_VALUE) {
-            System.out.println(0); // 합이 s 이상인 부분 배열이 없음을 나타냄
+            System.out.println(-1); // 합이 s 이상인 부분 배열이 없음을 나타냄
         } else {
             System.out.println(result);
         }
