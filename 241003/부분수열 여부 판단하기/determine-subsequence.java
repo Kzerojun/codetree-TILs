@@ -41,7 +41,7 @@ public class Main {
     private static boolean simulate() {
         int j = 1;
         for(int i = 1; i<=m; i++) {
-            while(j<n && B[i]== A[j]) {
+            while(j<=n && B[i]== A[j]) {
                 j++;
             }
 
