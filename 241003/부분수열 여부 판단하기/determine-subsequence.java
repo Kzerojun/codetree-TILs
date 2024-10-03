@@ -39,17 +39,23 @@ public class Main {
     }
 
     private static boolean simulate() {
-        int j = 1;
-        for(int i = 1; i<=m; i++) {
-            while(j<=n && B[i]== A[j]) {
-                j++;
-            }
-
-            if(j== n+1) {
-                return false;
-            }
+    int j = 1;  // 배열 A의 인덱스를 가리키는 변수
+    
+    // 배열 B의 각 요소를 확인하면서 배열 A에서 같은 값을 찾는다
+    for (int i = 1; i <= m; i++) {
+        // 배열 A에서 B[i]와 같은 값을 찾을 때까지 j를 증가시킨다
+        while (j <= n && B[i] != A[j]) {
+            j++;
         }
 
-        return true;
+        // 만약 A 배열을 모두 다 탐색했는데도 B[i]와 같은 값을 찾지 못한 경우
+        if (j == n + 1) {
+            return false;  // 배열 A에서 B의 순서를 찾을 수 없다
+        }
     }
+
+    // 배열 B의 모든 요소가 배열 A에서 순서대로 발견된 경우
+    return true;
+}
+
 }
