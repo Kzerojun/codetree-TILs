@@ -32,7 +32,10 @@ public class Main {
         for(int j =0; j<n; j++) {
             while(i-1>=0 && Math.abs(arr[i-1]+arr[j])<sum) {
                 i--;
-                sum = Math.min(Math.abs(arr[i]+arr[j]),sum);
+                
+                if(i>j) {
+                    sum = Math.min(Math.abs(arr[i]+arr[j]),sum);
+                }
             }
         }
 
