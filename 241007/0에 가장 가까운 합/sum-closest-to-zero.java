@@ -15,27 +15,31 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        arr = new int[n];
+        arr = new int[n+1];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i =0 ; i<n; i++) {
+        for(int i =1 ; i<=n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        Arrays.sort(arr);
+        Arrays.sort(arr,1,n+1);
     }
 
     private static void simulate() {
         int i = n;
         int sum = Integer.MAX_VALUE;
 
-        for(int j =0; j<n; j++) {
-            while(i-1>=0 && Math.abs(arr[i-1]+arr[j])<sum) {
-                i--;
-                if(i>j) {
-                    sum = Math.min(Math.abs(arr[i]+arr[j]),sum);
-                }
-            }
+        for(int j =1; j<=n; j++) {
+           if(j<i) {
+                sum = Math.min(sum,Math.abs(arr[i]+arr[j]));
+           }
+
+           while(i-1>j && arr[i-1] + arr[j] >0) {
+            i--;
+            sum = Math.min(sum,Math.abs(arr[i]+arr[j]));
+           }
+
+            
         }
 
         System.out.println(sum);
