@@ -34,7 +34,7 @@ public class Main {
                 sum = Math.min(sum,Math.abs(arr[i]+arr[j]));
            }
 
-           while(i-1>j && arr[i-1] + arr[j] >0) {
+           while(i-1>j && arr[i] + arr[j] >0) {
             i--;
             sum = Math.min(sum,Math.abs(arr[i]+arr[j]));
            }
