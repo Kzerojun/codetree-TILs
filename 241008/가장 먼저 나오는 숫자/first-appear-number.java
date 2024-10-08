@@ -37,7 +37,7 @@ public class Main {
     private static void simulate() {
         for(int i =0 ; i<m; i++) {
             int result = find(problems[i]);
-            if(problems[i]!= arr[result]) {
+            if(result == n || problems[i]!= arr[result]) {
                 System.out.println(-1);
             }else {
                 System.out.println(result+1);
