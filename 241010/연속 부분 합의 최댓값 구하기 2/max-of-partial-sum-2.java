@@ -30,8 +30,8 @@ public class Main {
         for(int i = 1; i<=n; i++) {
             sum = sum + arr[i];
 
-            if(sum<0 ) {
-                sum = 0 ;
+            if(sum < 0 ) {
+                sum = arr[i] ;
             }
             result = Math.max(result,sum);
         }
