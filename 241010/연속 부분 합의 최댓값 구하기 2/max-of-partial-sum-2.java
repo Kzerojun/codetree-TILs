@@ -28,10 +28,12 @@ public class Main {
         int result = Integer.MIN_VALUE;
 
         for(int i = 1; i<=n; i++) {
-            sum = sum + arr[i];
+            
 
             if(sum < 0 ) {
                 sum = arr[i] ;
+            }else {
+                sum = sum + arr[i];
             }
             result = Math.max(result,sum);
         }
