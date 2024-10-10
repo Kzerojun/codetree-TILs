@@ -35,7 +35,7 @@ public class Main {
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
             
-            int result = prefix[end] - prefix[start-1];
+            int result = prefix[end] - prefix[start]+arr[start];
             System.out.println(result);
         }
     }
