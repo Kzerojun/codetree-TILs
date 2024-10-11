@@ -34,9 +34,9 @@ public class Main {
             return dp[number];
         }
 
-        int left = fibo(number-1);
-        int right = fibo(number-2);
+        int left = fibo(number-1) % 10_007;
+        int right = fibo(number-2) % 10_007;
 
-        return dp[number] = left + right;
+        return dp[number] = (left + right) % 10_007;
     }
 }
