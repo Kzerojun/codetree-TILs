@@ -37,12 +37,12 @@ public class Main {
         }
 
         if(dp[number]!= -1) {
-            return dp[number];
+            return dp[number] ;
         }
 
 
-        int two = up(number+2);
-        int three = up(number+3);
+        int two = up(number+2) % 10_007;
+        int three = up(number+3) % 10_007;
 
         return dp[number] = two+three % 10_007;
     }
