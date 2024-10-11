@@ -23,7 +23,7 @@ public class Main {
     }
 
     private static void simulate() {
-        int result = up(0) % 10_007 ;
+        int result = up(0);
         System.out.println(result);
     }
 
@@ -44,6 +44,6 @@ public class Main {
         int two = up(number+2) % 10_007;
         int three = up(number+3) % 10_007;
 
-        return dp[number] = two+three % 10_007;
+        return dp[number] = (two+three) % 10_007;
     }
 }
