@@ -23,7 +23,7 @@ public class Main {
     }
 
     private static void simulate() {
-        int result = up(0);
+        int result = up(0) % 10_007 ;
         System.out.println(result);
     }
 
