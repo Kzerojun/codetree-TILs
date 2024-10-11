@@ -44,6 +44,6 @@ public class Main {
         int two = up(number+2);
         int three = up(number+3);
 
-        return dp[number] = two+three;
+        return dp[number] = two+three % 10_007;
     }
 }
