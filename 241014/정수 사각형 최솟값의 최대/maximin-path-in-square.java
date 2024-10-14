@@ -42,7 +42,7 @@ public class Main {
         }
 
         int down = dfs(i+1,j);
-        int right = dfs(i+1,j+1);
+        int right = dfs(i,j+1);
 
         int maxOfMin = Math.max(down,right);
 
