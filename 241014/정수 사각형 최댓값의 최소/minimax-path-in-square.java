@@ -35,7 +35,7 @@ public class Main {
         }
 
         if(i>=N || j>= N) {
-            return Integer.MIN_VALUE;
+            return Integer.MAX_VALUE;
         }
 
         if(dp[i][j]!=-1) {
