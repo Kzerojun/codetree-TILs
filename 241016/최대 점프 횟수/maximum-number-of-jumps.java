@@ -51,7 +51,7 @@ public class Main {
         dp[now] =1;
 
         for(int next = now; next<arr[now]; next++) {
-            int result = dfs(now);
+            int result = dfs(next);
             dp[now] = Math.max(result+1,dp[now]);
         }
 
