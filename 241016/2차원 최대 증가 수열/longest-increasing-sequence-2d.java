@@ -43,8 +43,8 @@ public class Main {
 
         dp[i][j] = 1;
 
-        for(int x = i; x<n; x++) {
-            for(int y = j; y<m; y++) {
+        for(int x = i+1; x<n; x++) {
+            for(int y = j+1; y<m; y++) {
                 if(graph[i][j]<graph[x][y]) {
                     int result = dfs(x,y);
                     dp[i][j] = Math.max(dp[i][j],result+1);
