@@ -29,11 +29,10 @@ public class Main {
     }
 
     private static void simulate() {
-        for(int i = 0; i<n; i++) {
-            if(dp[i]==-1 && arr[i] != 0) {
-                dfs(i);
-            }
-        }
+  
+        dfs(0);
+      
+        
 
         int result = -1;
         for(int i =0; i<n; i++) {
