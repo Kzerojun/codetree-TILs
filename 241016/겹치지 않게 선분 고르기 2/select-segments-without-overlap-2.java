@@ -16,7 +16,7 @@ public class Main {
             }
         }
 
-        int result = -1;
+        int result = 1;
         for(int i =0  ; i<n; i++) {
             result = Math.max(result,dp[i]);
         }
