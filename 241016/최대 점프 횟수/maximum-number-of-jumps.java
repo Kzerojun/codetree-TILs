@@ -29,17 +29,8 @@ public class Main {
     }
 
     private static void simulate() {
-  
         dfs(0);
-      
-        
-
-        int result = -1;
-        for(int i =0; i<n; i++) {
-            result = Math.max(result,dp[i]);
-        }
-
-        System.out.println(result);
+        System.out.println(dp[0]);
     }
 
     private static int dfs(int now) {
@@ -47,10 +38,16 @@ public class Main {
             return dp[now];
         }
         
-        dp[now] = 1;
+        dp[now] = 0;
 
-        for(int next = now; next<arr[now]; next++) {
-            int result = dfs(next);
+        for(int weight = 0; weight<arr[now]; weight++) {
+            int next = weight + now;
+
+            int result = 0;
+            if(next<n) {
+                result = dfs(next);
+            }
+            
             dp[now] = Math.max(result+1,dp[now]);
         }
 
