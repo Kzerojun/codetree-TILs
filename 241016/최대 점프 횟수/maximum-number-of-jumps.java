@@ -46,9 +46,10 @@ public class Main {
             int result = 0;
             if(next<n) {
                 result = dfs(next);
+                dp[now] = Math.max(result+1,dp[now]);
             }
             
-            dp[now] = Math.max(result+1,dp[now]);
+            
         }
 
         return dp[now];
