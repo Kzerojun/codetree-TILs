@@ -40,7 +40,7 @@ public class Main {
         
         dp[now] = 0;
 
-        for(int weight = 0; weight<arr[now]; weight++) {
+        for(int weight = 1; weight<=arr[now]; weight++) {
             int next = weight + now;
 
             int result = 0;
