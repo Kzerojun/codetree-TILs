@@ -48,7 +48,7 @@ public class Main {
             return dp[now];
         }
         
-        dp[now] =1;
+        dp[now] = 1;
 
         for(int next = now; next<arr[now]; next++) {
             int result = dfs(next);
