@@ -56,7 +56,6 @@ public class Main {
                 int result = dfs(i);
                 dp[i] = Math.max(dp[i],result+1);
             }
-            dp[i] = Math.max(dp[i],dfs(i));
         }
 
         return dp[index];
