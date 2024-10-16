@@ -35,12 +35,15 @@ public class Main {
             int x1 = Integer.parseInt(st.nextToken());
             int x2 = Integer.parseInt(st.nextToken());
             
-
             lines[i] = new Line(x1,x2);
             dp[i] = -1;
         }
 
         Arrays.sort(lines,(o1,o2)->{
+            if(o1.x1 == o2.x1) {
+                return o1.x2 - o2.x2;
+            }
+
             return o1.x1 - o2.x1;
         });
     }
