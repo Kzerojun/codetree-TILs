@@ -7,7 +7,6 @@ public class Main {
     static int[] dp;
 
     public static void main(String[] args) throws IOException {
-        // 여기에 코드를 작성해주세요.
         init();
         simulate();
     }
@@ -18,40 +17,36 @@ public class Main {
         works = new Work[N];
         dp = new int[N];
 
-        for(int i = 0 ; i<N; i++) {
+        for(int i = 0; i < N; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
             int p = Integer.parseInt(st.nextToken());
 
             dp[i] = -1;
-            works[i] = new Work(s,e,p);
+            works[i] = new Work(s, e, p);
         }
     }
 
     private static void simulate() {
-        for(int i = 0 ; i<N; i++) {
-            dfs(i);
-        }
-        int result = -1;
+        int result = 0;
 
-        for(int i =0  ; i<N; i++) {
-            result = Math.max(result,dp[i]);
+        for(int i = 0; i < N; i++) {
+            result = Math.max(result, dfs(i));
         }
         System.out.println(result);
     }
 
     private static int dfs(int index) {
-        if(dp[index]!= -1) {
+        if(dp[index] != -1) {
             return dp[index];
         }
 
-        dp[index] = works[index].p;
+        dp[index] = works[index].p; // 현재 작업의 점수
 
-        for(int i = index+1; i<N; i++) {
+        for(int i = index + 1; i < N; i++) {
             if(works[index].e < works[i].s) {
-                int result = dfs(i);
-                dp[index] = Math.max(result+dp[index],dp[index]);
+                dp[index] = Math.max(dp[index], works[index].p + dfs(i)); // 다음 작업의 점수 추가
             }
         }
 
@@ -59,7 +54,7 @@ public class Main {
     }
 }
 
-class Work{
+class Work {
     int s;
     int e;
     int p;
