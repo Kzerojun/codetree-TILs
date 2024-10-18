@@ -51,11 +51,13 @@ public class Main {
         }
 
         dp[index][target] = 0;
-        
+
         for(int i = index; i<N; i++) {
             if(target - jewels[i].W >=0) {
                 int result = dfs(i+1,target-jewels[i].W);
+
                 dp[index][target] = Math.max(dp[index][target],result+jewels[i].V);
+                System.out.println(dp[index][target]+"index"+i);
             }
         }
 
