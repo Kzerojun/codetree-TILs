@@ -32,7 +32,7 @@ public class Main {
         }
 
         int result = dfs(M);
-        if(result == -100000) {
+        if(result == Integer.MIN_VALUE) {
             System.out.println(-1);
         }else {
             System.out.println(result);
@@ -45,14 +45,14 @@ public class Main {
         }
 
         if(target<0) {
-            return -100000;
+            return Integer.MIN_VALUE;
         }
 
         if(dp[target]!=-1) {
             return dp[target];
         }
         
-        dp[target] = -100000;
+        dp[target] = Integer.MIN_VALUE;
         
         for(int i = 0 ; i<N; i++) {
             if(target-arr[i]>=0) {
