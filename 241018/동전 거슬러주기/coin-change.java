@@ -30,15 +30,7 @@ public class Main {
     }
 
     private static void simulate() {
-        for(int i = 0 ; i<N; i++) {
-            dfs(0,0,i);
-        }
-        int result = Integer.MAX_VALUE;
-
-        for(int i = 0 ; i<N; i++) {
-            result = Math.min(result,dp[i]);
-        }
-
+        int result = dfs(M);
         if (result == Integer.MAX_VALUE) {
             System.out.println(-1);
         } else {
@@ -46,22 +38,19 @@ public class Main {
         }
     }
 
-    private static int dfs(int sum, int count, int index) {
-        if (sum == M) return count;
-        if (sum > M) return Integer.MAX_VALUE;
-        if (dp[sum] != -1) return dp[sum];
+    private static int dfs(int target) {
+        if (target == 0) return 0;
+        if (target < 0) return Integer.MAX_VALUE;
+        if (dp[target] != -1) return dp[target];
 
         int minCoins = Integer.MAX_VALUE;
-        for (int i = index; i < N; i++) {
-            int newSum = sum + arr[i];
-            if (newSum <= M) {
-                int subResult = dfs(newSum, count + 1,i);
-                if (subResult != Integer.MAX_VALUE) {
-                    minCoins = Math.min(minCoins, subResult);
-                }
+        for (int i = 0; i < N; i++) {
+            int subResult = dfs(target - arr[i]);
+            if (subResult != Integer.MAX_VALUE) {
+                minCoins = Math.min(minCoins, subResult + 1);
             }
         }
 
-        return dp[index] = minCoins;
+        return dp[target] = minCoins;
     }
 }
