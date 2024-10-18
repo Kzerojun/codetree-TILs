@@ -26,7 +26,7 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i = 0 ; i<N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            dp[i] = 101;
+            dp[i] = Integer.MAX_VALUE;
         }
     }
 
@@ -56,7 +56,7 @@ public class Main {
             return Integer.MAX_VALUE;
         }
 
-        if(dp[index] != 101) {
+        if(dp[index] != Integer.MAX_VALUE) {
             return dp[index];
         }
 
