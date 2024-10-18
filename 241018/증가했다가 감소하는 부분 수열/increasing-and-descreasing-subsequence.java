@@ -35,11 +35,11 @@ public class Main {
 
         int result = -1;
         for(int i= 0 ; i<N; i++) {
-            int sum = dpDecrease[i] + dpIncrease[i];
+            int sum = dpDecrease[i] + dpIncrease[i] +1;
             result = Math.max(sum,result);
         }
 
-        System.out.println(result+1);
+        System.out.println(result);
     }
 
 
