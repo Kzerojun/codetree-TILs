@@ -32,7 +32,7 @@ public class Main {
         }
 
         int result = dfs(M);
-        if(result == INF) {
+        if(result == -100000) {
             System.out.println(-1);
         }else {
             System.out.println(result);
