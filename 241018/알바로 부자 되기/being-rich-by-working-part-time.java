@@ -52,7 +52,7 @@ public class Main {
 
         for(int i = index+1; i<N; i++) {
             if(works[index].e < works[i].s) {
-                int result = dfs(index);
+                int result = dfs(i);
                 dp[index] = Math.max(result+dp[index],dp[index]);
             }
         }
