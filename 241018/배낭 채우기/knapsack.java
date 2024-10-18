@@ -41,7 +41,7 @@ public class Main {
         if(target == 0) {
             return 0;
         }
-
+        
         if(index >= N || target<0) {
             return Integer.MIN_VALUE;
         }
@@ -51,6 +51,7 @@ public class Main {
         }
 
         dp[index][target] = 0;
+        
         for(int i = index; i<N; i++) {
             if(target - jewels[i].W >=0) {
                 int result = dfs(i+1,target-jewels[i].W);
