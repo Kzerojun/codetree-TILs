@@ -63,7 +63,7 @@ public class Main {
             return dp[index];
         }
 
-        dp[index] = 0;
+        dp[index] = Integer.MAX_VALUE;
 
         for(int i = index; i<N; i++) {
             int result = dfs(i,sum+arr[i], count+1);
