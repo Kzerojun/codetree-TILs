@@ -2,11 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int N, M;
-    static int[] arr;
+    static int N,M;
     static int[] dp;
+    static int[] coins;
 
     public static void main(String[] args) throws IOException {
+        // 여기에 코드를 작성해주세요.
         init();
         simulate();
     }
@@ -17,40 +18,56 @@ public class Main {
 
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        
-        dp = new int[M + 1];
-        arr = new int[N];
+
+        dp = new int[M];   
+        coins = new int[N];
 
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        for(int i = 0 ; i<N; i++) {
+            coins[i] = Integer.parseInt(st.nextToken());
         }
-        
-        Arrays.fill(dp, -1);
+
+        for(int i =0 ; i<M; i++) {
+            dp[i] = 10_000_001;
+        }
     }
 
     private static void simulate() {
-        int result = dfs(M);
-        if (result == Integer.MAX_VALUE) {
-            System.out.println(-1);
-        } else {
-            System.out.println(result);
+        for(int i = 0; i<N; i++) {
+            dfs(i);
         }
+
+        int result = Integer.MAX_VALUE;
+
+        for(int i =0  ;i<N; i++) {
+            result = Math.min(result,dp[i]);
+        }
+
+        System.out.println(result);
     }
 
-    private static int dfs(int target) {
-        if (target == 0) return 0;
-        if (target < 0) return Integer.MAX_VALUE;
-        if (dp[target] != -1) return dp[target];
+    private static int dfs(int sum) {
+        if(sum == M) {
+            return 0;
+        }
 
-        int minCoins = Integer.MAX_VALUE;
-        for (int i = 0; i < N; i++) {
-            int subResult = dfs(target - arr[i]);
-            if (subResult != Integer.MAX_VALUE) {
-                minCoins = Math.min(minCoins, subResult + 1);
+        if(sum> M) {
+            return 10_000_001;
+        }
+
+        if(dp[sum]!=10_000_001) {
+            return dp[sum];
+        }
+
+        dp[sum] = 10_000_001;
+
+        for(int i = 0 ; i<N;i++) {
+            if(sum<=M) {
+                int result = dfs(sum+coins[i]);
+                dp[sum] = Math.min(result+1,dp[sum]);
             }
         }
 
-        return dp[target] = minCoins;
+        return dp[sum];
     }
 }
