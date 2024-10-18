@@ -26,20 +26,17 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i = 0 ; i<N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            dp[i] = -1;
+            dp[i] = 101;
         }
     }
 
     private static void simulate() {
         for(int i = 0 ; i<N; i++) {
-            dfs(i,0,0);
+            dfs(i,0);
         }
 
         int result = Integer.MAX_VALUE;
         for(int i = 0 ; i<N; i++) {
-            if(dp[i]!=0) {
-                result = Math.min(result,dp[i]);
-            }
             System.out.println(dp[i]);
         }
 
@@ -50,23 +47,22 @@ public class Main {
         }
     }
 
-    private static int dfs(int index, int sum, int count) {
+    private static int dfs(int index, int sum) {
         if(sum== M) {
-            return dp[index] = count;
+            return 1;
         }
 
         if(sum>M) {
             return 101;
         }
 
-        if(dp[index]!= -1) {
+        if(dp[index]!= 101) {
             return dp[index];
         }
 
         for(int i = index; i<N; i++) {
-            int result = dfs(i,sum+arr[i], count+1);
-
-            dp[index] = Math.min(result+1,dp[index]);
+            int result = dfs(i,sum+arr[i])+1;
+            dp[index] = Math.min(result,dp[index]);
         }
 
         return dp[index];
