@@ -31,7 +31,10 @@ public class Main {
     }
 
     private static void simulate() {
-       int result = dfs(M, 0);
+       for(int i =0  ;i<N; i++) {
+        dfs(M,i);
+       }
+       int result = dp[M];
        System.out.println(result == INF ? -1 : result);
     }
 
@@ -51,9 +54,7 @@ public class Main {
         dp[target] = INF;
         for (int i = index; i < N; i++) {
             int result = dfs(target - arr[i], i + 1);
-            if (result != INF) {
-                dp[target] = Math.min(result + 1, dp[target]);
-            }
+            dp[target] = Math.min(result + 1, dp[target]);
         }
 
         return dp[target];
