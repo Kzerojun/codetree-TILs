@@ -56,8 +56,8 @@ public class Main {
 
         dpIncrease[index] = 1;
 
-        for(int i = index+1; i<N; i++) {
-            if(arr[i]>arr[index]) {
+        for(int i = 0; i<index; i++) {
+            if(arr[i]<arr[index]) {
                 int result = dfsIncrease(i);
                 dpIncrease[index] = Math.max(dpIncrease[index],result+1);
             }
@@ -67,7 +67,7 @@ public class Main {
     }
 
         private static int dfsDecrease(int index) {
-        if(index<0) {
+        if(index>=N) {
             return Integer.MIN_VALUE;
         }
 
@@ -75,11 +75,11 @@ public class Main {
             return dpDecrease[index];
         }
 
-        int notSelect = dfsDecrease(index-1);
+        int notSelect = dfsDecrease(index+1);
 
         dpDecrease[index] = 1;
 
-        for(int i = index-1; i>=0; i--) {
+        for(int i = index+1; i<N; i++) {
             if(arr[i]<arr[index]) {
                 int result = dfsDecrease(i);
                 dpDecrease[index] = Math.max(dpDecrease[index],result+1);
