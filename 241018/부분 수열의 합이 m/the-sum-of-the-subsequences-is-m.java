@@ -51,8 +51,9 @@ public class Main {
         dp[target] = INF;
         for (int i = index; i < N; i++) {
             int result = dfs(target - arr[i], i + 1);
-            dp[target] = Math.min(result + 1, dp[target]);
-            
+            if (result != INF) {
+                dp[target] = Math.min(result + 1, dp[target]);
+            }
         }
 
         return dp[target];
