@@ -40,6 +40,7 @@ public class Main {
             if(dp[i]!=0) {
                 result = Math.min(result,dp[i]);
             }
+            System.out.println(dp[i]);
         }
 
         if(result == Integer.MAX_VALUE) {
