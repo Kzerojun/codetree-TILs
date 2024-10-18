@@ -28,9 +28,9 @@ public class Main {
             jewels[i] = new Jewel(W,V);
         }
 
-        dp = new int[N][M+1];
+        dp = new int[N+1][M+1];
 
-        for(int i = 0; i<N; i++) {
+        for(int i = 0; i<=N; i++) {
             Arrays.fill(dp[i],-1);
         }
 
@@ -42,7 +42,7 @@ public class Main {
             return 0;
         }
         
-        if(index >= N || target<0) {
+        if(target<0) {
             return Integer.MIN_VALUE;
         }
 
@@ -57,7 +57,6 @@ public class Main {
                 int result = dfs(i+1,target-jewels[i].W);
 
                 dp[index][target] = Math.max(dp[index][target],result+jewels[i].V);
-                System.out.println(dp[index][target]+"index"+i);
             }
         }
 
