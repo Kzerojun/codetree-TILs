@@ -35,10 +35,12 @@ public class Main {
     }
 
     private static void simulate() {
-        System.out.println(dfs(M,0));
-      
-
-        
+       int result = dfs(M,0);
+       if(result == INF) {
+        System.out.println(-1);
+       }else {
+        System.out.println(result);
+       }
     }
 
     private static int dfs(int target, int index) {
