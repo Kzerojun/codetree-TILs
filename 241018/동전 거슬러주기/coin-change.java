@@ -32,12 +32,12 @@ public class Main {
 
     private static void simulate() {
         for(int i = 0 ; i<N; i++) {
-            dfs(i,0);
+            dfs(i,0,0);
         }
 
         int result = Integer.MAX_VALUE;
         for(int i = 0 ; i<N; i++) {
-            System.out.println(dp[i]);
+            result = Math.min(result,dp[i]);
         }
 
         if(result == Integer.MAX_VALUE) {
@@ -47,21 +47,21 @@ public class Main {
         }
     }
 
-    private static int dfs(int index, int sum) {
-        if(sum== M) {
-            return 1;
+    private static int dfs(int index, int sum, int count) {
+        if(sum == M) {
+            return dp[index]= count;
         }
 
         if(sum>M) {
-            return 101;
+            return Integer.MAX_VALUE;
         }
 
-        if(dp[index]!= 101) {
+        if(dp[index] != 101) {
             return dp[index];
         }
 
         for(int i = index; i<N; i++) {
-            int result = dfs(i,sum+arr[i])+1;
+            int result = dfs(index,sum+arr[i],count+1);
             dp[index] = Math.min(result,dp[index]);
         }
 
