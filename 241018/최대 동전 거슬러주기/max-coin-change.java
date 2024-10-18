@@ -57,7 +57,10 @@ public class Main {
         for(int i = 0 ; i<N; i++) {
             if(target-arr[i]>=0) {
                 int result = dfs(target-arr[i]);
-                dp[target] = Math.max(dp[target],result+1);
+                if(result != Integer.MIN_VALUE) {
+                    dp[target] = Math.max(dp[target],result+1);
+                }
+                
             }
         }
 
