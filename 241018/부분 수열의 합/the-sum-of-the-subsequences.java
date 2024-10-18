@@ -33,9 +33,9 @@ public class Main {
 
         int result = dfs(0,M);
         if(result != INF) {
-            System.out.print("No");
-        }else {
             System.out.print("Yes");
+        }else {
+            System.out.print("No");
         }
     }
 
@@ -47,11 +47,14 @@ public class Main {
         if(target<0) {
             return INF;
         }
+        if(dp[index][target]!=-1) {
+            return dp[index][target];
+        }
 
         dp[index][target] = INF;
-        for(int i = index+1; i<N; i++) {
+        for(int i = index; i<N; i++) {
             if(target-arr[index]>=0) {
-                int result = dfs(i,target-arr[index]);
+                int result = dfs(i+1,target-arr[index]);
                 dp[index][target] = Math.min(result+1,dp[index][target]);
             }
         }
