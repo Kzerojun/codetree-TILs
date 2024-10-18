@@ -30,8 +30,8 @@ public class Main {
             Arrays.fill(dp[i], -1);
         }
 
-
-        System.out.println(dfs(0,M));
+        int result = dfs(0,M);
+        System.out.println(result == INF ? -1 : result);
         
     }
 
