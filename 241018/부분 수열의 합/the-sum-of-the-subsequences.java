@@ -2,14 +2,13 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int N,M;
+    static int N, M;
     static int[] arr;
-    static int[][] dp;
-    static int INF = 10_001;
+    static boolean[][] dp;
 
     public static void main(String[] args) throws IOException {
-        // 여기에 코드를 작성해주세요.
         init();
+        solve();
     }
 
     private static void init() throws IOException {
@@ -20,45 +19,42 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
 
         arr = new int[N];
-        dp = new int[101][10_001];
+        dp = new boolean[N + 1][M + 1];
 
         st = new StringTokenizer(br.readLine());
-        for(int i = 0 ; i<N; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-        }
-
-        for(int i = 0 ; i<=100; i++) {
-            Arrays.fill(dp[i],-1);
-        }
-
-        int result = dfs(0,M);
-        if(result != INF) {
-            System.out.print("Yes");
-        }else {
-            System.out.print("No");
         }
     }
 
-    private static int dfs(int index, int target) {
-        if(target == 0 ) {
-            return 0;
+    private static void solve() {
+        boolean result = dfs(0, M);
+        System.out.println(result ? "Yes" : "No");
+    }
+
+    private static boolean dfs(int index, int target) {
+        if (target == 0) {
+            return true;
         }
 
-        if(target<0) {
-            return INF;
-        }
-        if(dp[index][target]!=-1) {
-            return dp[index][target];
+        if (index >= N || target < 0) {
+            return false;
         }
 
-        dp[index][target] = INF;
-        for(int i = index; i<N; i++) {
-            if(target-arr[index]>=0) {
-                int result = dfs(i+1,target-arr[index]);
-                dp[index][target] = Math.min(result+1,dp[index][target]);
+        if (dp[index][target]) {
+            return true;
+        }
+
+        for (int i = index; i < N; i++) {
+            if (target - arr[i] >= 0) {
+                if (dfs(i + 1, target - arr[i])) {
+                    dp[index][target] = true;
+                    return true;
+                }
             }
         }
 
-        return dp[index][target];
+        
+        return dp[index][target] = false;
     }
 }
