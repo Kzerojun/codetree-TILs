@@ -52,11 +52,11 @@ class Trie{
         TrieNode current = root;
 
         for(char ch : str.toCharArray()) {
-            if(!current.child.containsKey(ch)) {
-                System.out.print(0+" ");
-            } else {
+            if(current.child.containsKey(ch)) {
                 current = current.child.get(ch);
                 System.out.print(current.num+" ");
+            }else {
+                System.out.print(0+" ");
             }
         }
         
