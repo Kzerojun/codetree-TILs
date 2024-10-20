@@ -61,7 +61,7 @@ class Trie {
         TrieNode currentNode = root;
 
         for (char ch : number.toCharArray()) {
-            currentNode = currentNode.child.get(ch);
+
             if (currentNode == null) {
                 return false;
             }
@@ -69,6 +69,7 @@ class Trie {
             if (currentNode.isTerminal) {
                 return true;
             }
+            currentNode = currentNode.child.get(ch);
         }
 
         return false; // 접두사 아님
