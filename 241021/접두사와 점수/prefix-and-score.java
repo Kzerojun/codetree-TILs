@@ -58,10 +58,10 @@ class Trie{
             return;
         }
         
-        if(current.isTerminal) {
-            int cal = depth * current.count;
-            result = Math.max(cal,result);
-        }
+        
+        int cal = depth * current.count;
+        result = Math.max(cal,result);
+        
        
         for(char ch : current.child.keySet()) {
             TrieNode next = current.child.get(ch);
@@ -72,13 +72,7 @@ class Trie{
             
             solution(next,depth+1);
         }
-        
-        
-
-
     }
-
-
 }
 
 class TrieNode {
