@@ -54,20 +54,23 @@ class Trie{
     }
 
     private void solution(TrieNode current, int depth) {
-
+        if(current == null) {
+            return;
+        }
+        
         if(current.isTerminal) {
             int cal = depth * current.count;
             result = Math.max(cal,result);
         }
        
         for(char ch : current.child.keySet()) {
-            current = current.child.get(ch);
+            TrieNode next = current.child.get(ch);
 
             if(current == null) {
                 continue;
             }
-
-            solution(current,depth+1);
+            
+            solution(next,depth+1);
         }
         
         
