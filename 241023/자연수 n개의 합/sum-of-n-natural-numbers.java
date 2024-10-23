@@ -20,7 +20,7 @@ public class Main {
         while(left<=right) {
             long mid = (left+right)/2;
 
-            if(mid*(mid+1)/2 <=S) {
+            if(mid*(mid+1)/2 <S) {
                 left = mid+1; 
                 result = Math.max(result,mid);               
             }else {
