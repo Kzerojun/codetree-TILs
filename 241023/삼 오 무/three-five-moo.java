@@ -15,7 +15,7 @@ public class Main {
 
 
         int left = 1;
-        int right = 16;
+        int right = MAX_SIZE;
 
         while(left<=right) {
             int mid = (left+right)/2;
