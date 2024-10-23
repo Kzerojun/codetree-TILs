@@ -33,8 +33,8 @@ public class Main {
     
     }
 
-    private static int cal(int number) {
-        int sum = 0;
+    private static long cal(long number) {
+        long sum = 0;
 
         sum = sum + number/3;
         sum = sum + number/5;
