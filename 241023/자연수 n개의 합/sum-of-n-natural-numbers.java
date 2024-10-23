@@ -14,7 +14,7 @@ public class Main {
         long S = Long.parseLong(br.readLine());
 
         long left = 1;
-        long right = S;
+        long right = 2000000000;
 
         long result = -1;
         while(left<=right) {
