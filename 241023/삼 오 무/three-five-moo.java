@@ -18,9 +18,9 @@ public class Main {
         long right = MAX_SIZE;
 
         while(left<=right) {
-            int mid = (left+right)/2;
+            long mid = (left+right)/2;
 
-            int result = cal(mid);
+            long result = cal(mid);
             if(result>=N) {
                 right = mid-1;
             }else {
