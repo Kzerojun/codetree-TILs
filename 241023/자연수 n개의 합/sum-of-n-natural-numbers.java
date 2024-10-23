@@ -11,14 +11,14 @@ public class Main {
     private static void simulate() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int S = Integer.parseInt(br.readLine());
+        long S = Long.parseLong(br.readLine());
 
-        int left = 1;
-        int right = S;
+        long left = 1;
+        long right = S;
 
-        int result = Integer.MIN_VALUE;
+        long result = Long.MIN_VALUE;
         while(left<=right) {
-            int mid = (left+right)/2;
+            long mid = (left+right)/2;
 
             if(mid*(mid+1)/2 <=S) {
                 left = mid+1; 
