@@ -10,8 +10,8 @@ public class Main {
 
     private static void simulate() throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int k = Integer.parseInt(br.readLine());
+        long n = Integer.parseInt(br.readLine());
+        long k = Integer.parseInt(br.readLine());
 
         long left = 1;
         long right= n*n;
@@ -30,7 +30,7 @@ public class Main {
         System.out.println(left);
     }
 
-    private static long cal(long number,int n) {
+    private static long cal(long number,long n) {
         
         long count = 0;
 
