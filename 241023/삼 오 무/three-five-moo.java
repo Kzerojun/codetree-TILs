@@ -14,8 +14,8 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
 
 
-        int left = 1;
-        int right = MAX_SIZE;
+        long left = 1;
+        long right = MAX_SIZE;
 
         while(left<=right) {
             int mid = (left+right)/2;
