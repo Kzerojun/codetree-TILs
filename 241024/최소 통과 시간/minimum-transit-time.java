@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
     static int n,m;
-    static int MAX_LEN = 1_000_000_000;
+    static long MAX_LEN = Long.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         // 여기에 코드를 작성해주세요.
@@ -23,12 +23,12 @@ public class Main {
             times[i] = Integer.parseInt(br.readLine());
         }
 
-        int left = 1;
-        int right = MAX_LEN;
+        long left = 1;
+        long right = MAX_LEN;
 
 
         while(left<=right) {
-            int mid = (left+right)/2;
+            long mid = (left+right)/2;
 
             if(isCanPass(mid,times)) {
                 right = mid-1;
@@ -41,10 +41,10 @@ public class Main {
         System.out.println(left);
     }
 
-    private static boolean isCanPass(int time,int[] arr) {
-        int cnt = 0 ;
+    private static boolean isCanPass(long time,int[] arr) {
+        long cnt = 0 ;
 
-        for(int use : arr) {
+        for(long use : arr) {
             cnt = cnt + time/use;
 
             if(cnt>=n) {
