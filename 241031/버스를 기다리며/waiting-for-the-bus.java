@@ -42,7 +42,7 @@ public class Main {
 
         }
 
-        System.out.println(left);
+        System.out.println(left+1);
     }
 
     private static boolean isPossible(int mid) {
@@ -51,7 +51,7 @@ public class Main {
         int lastIndex = 0;
 
         for(int i = 0; i<N; i++) {
-            if(times[i]-times[lastIndex]>=mid) {
+            if(times[i]-times[lastIndex]>mid) {
                 bus++;
                 lastIndex = i;
             }
