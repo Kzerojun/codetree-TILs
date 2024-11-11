@@ -15,7 +15,7 @@ public class Main {
 
         dp = new int[A.length()][B.length()];
 
-        for(int i = 0 ; i<A.length(); i++) {
+        for(int i = 0 ; i<Math.max(A.length(),B.length()); i++) {
             Arrays.fill(dp[i],-1);
         }
 
